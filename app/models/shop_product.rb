@@ -38,7 +38,7 @@ class ShopProduct < ActiveRecord::Base
 		# For Searching Shop Products by Product Name or Brand Name
 		def self.search(search)
 		  if search
-		    where("product_name LIKE ? or brand_name LIKE ?", "%#{search}%", "%#{search}%")
+		    where("lower(product_name) LIKE ? or lower(brand_name) LIKE ?", "%#{search}%".downcase, "%#{search}%".downcase)
 		  else
 		    all
 		  end
