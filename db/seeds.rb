@@ -22,6 +22,14 @@ u1 = User.new({email: "admin@gmail.com",
                 })
 u1.save(validate: false)
 
+u2 = User.new({email: "shop1@gmail.com",
+                  password: "mindfire", 
+                  password_confirmation: "mindfire",
+                  role: "shopkeeper",
+                  confirmed_at: Time.zone.now
+                })
+u2.save(validate: false)
+
 require 'csv'
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'brands.csv'))
